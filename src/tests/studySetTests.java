@@ -14,7 +14,7 @@ class studySetTests {
 	@Test
 	void testInsertingDifferentTermsIntoStudySet() {
 		System.out.println("Test inserting different terms into StudySet:");
-		StudySet studySet = new StudySet();
+		StudySet studySet = new StudySet("test1");
 		Term termForTesting1 = new Term("What is 1+1 equal to?", "2");
 		Term termForTesting2 = new Term("What is your favorite class?", "CSE 237");
 		boolean ifInsert1 = studySet.insertTerm(termForTesting1);
@@ -26,7 +26,7 @@ class studySetTests {
 	@Test
 	void testInsertingSameTermIntoStudySet() {
 		System.out.println("\nTest inserting same term into StudySet:");
-		StudySet studySet = new StudySet();
+		StudySet studySet = new StudySet("test1");
 		Term termForTesting = new Term("What is 1+1 equal to?", "2");
 		boolean ifInsert1 = studySet.insertTerm(termForTesting);
 		boolean ifInsertAnother1 = studySet.insertTerm(termForTesting); // should return false
@@ -37,7 +37,7 @@ class studySetTests {
 	@Test
 	void testDeletingExistingTermInStudySet() {
 		System.out.println("\nTest deleting existing term in StudySet:");
-		StudySet studySet = new StudySet();
+		StudySet studySet = new StudySet("test1");
 		Term termForTesting = new Term("What is 1+1 equal to?", "2");
 		boolean ifInsert = studySet.insertTerm(termForTesting);
 		boolean ifDelete = studySet.deleteTerm(termForTesting);
@@ -48,11 +48,21 @@ class studySetTests {
 	@Test
 	void testDeletingNonexistingTermInStudySet() {
 		System.out.println("\nTest deleting non-existing term in StudySet:");
-		StudySet studySet = new StudySet();
+		StudySet studySet = new StudySet("test1");
 		Term termForTesting = new Term("What is 1+1 equal to?", "2");
 		boolean ifDelete = studySet.deleteTerm(termForTesting); // should return false
 		boolean ifSizeIs0 = studySet.getSize() == 0;
 		assertTrue((!ifDelete) && ifSizeIs0);
+	}
+	
+	@Test
+	void testGettingStudySetName() {
+		System.out.println("\nTest getting the name of the study set:");
+		String name="test1";
+		StudySet studySet=new StudySet(name);
+		String studySetName=studySet.getName();
+		boolean ifNamesEqual=name.equals(studySetName);
+		assertTrue(ifNamesEqual);
 	}
 	
 
