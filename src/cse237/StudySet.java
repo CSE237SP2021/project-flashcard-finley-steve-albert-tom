@@ -33,6 +33,32 @@ public class StudySet {
 			return false;
 		}
 	}
+	
+	public void changeStudySetName(String newName) {
+		System.out.println("Changing study set name to "+newName+"...");
+		this.studySetName=newName;
+		System.out.println("Name successfully changed to "+newName+"!");
+	}
+	
+	
+	public void viewAllTerms() {
+		String studySetName=this.studySetName;
+		System.out.println("These are all the terms in "+studySetName+": ");
+		System.out.println();
+		
+		int currentIndex=1;
+		
+		for(Term currentTerm:this.studySetCollection) {
+			String termName=currentTerm.getTerm();
+			String termDefinition=currentTerm.getDefinition();
+			String lineToBeDisplayed=String.valueOf(currentIndex)+". "+termName+" || "+termDefinition;
+			System.out.println(lineToBeDisplayed);
+			currentIndex++;
+			
+		}
+		
+		
+	}
 
 	public boolean checkIfTermExists(Term termForChecking) {
 		return this.studySetCollection.contains(termForChecking);
