@@ -22,7 +22,7 @@ class studySetTests {
 		boolean ifSizeIs2 = studySet.getSize() == 2;
 		assertTrue(ifInsert1 && ifInsert2 && ifSizeIs2);
 	}
-	
+
 	@Test
 	void testInsertingSameTermIntoStudySet() {
 		System.out.println("\nTest inserting same term into StudySet:");
@@ -33,7 +33,7 @@ class studySetTests {
 		boolean ifSizeIs1 = studySet.getSize() == 1;
 		assertTrue(ifInsert1 && (!ifInsertAnother1) && ifSizeIs1);
 	}
-	
+
 	@Test
 	void testDeletingExistingTermInStudySet() {
 		System.out.println("\nTest deleting existing term in StudySet:");
@@ -44,7 +44,7 @@ class studySetTests {
 		boolean ifSizeIs0 = studySet.getSize() == 0;
 		assertTrue(ifInsert && ifDelete && ifSizeIs0);
 	}
-	
+
 	@Test
 	void testDeletingNonexistingTermInStudySet() {
 		System.out.println("\nTest deleting non-existing term in StudySet:");
@@ -53,28 +53,47 @@ class studySetTests {
 		boolean ifDelete = studySet.deleteTerm(termForTesting); // should return false
 		boolean ifSizeIs0 = studySet.getSize() == 0;
 		assertTrue((!ifDelete) && ifSizeIs0);
+		
 	}
-	
+
 	@Test
 	void testGettingStudySetName() {
 		System.out.println("\nTest getting the name of the study set:");
-		String name="test1";
-		StudySet studySet=new StudySet(name);
-		String studySetName=studySet.getName();
-		boolean ifNamesEqual=name.equals(studySetName);
+		String name = "test1";
+		StudySet studySet = new StudySet(name);
+		String studySetName = studySet.getName();
+		boolean ifNamesEqual = name.equals(studySetName);
 		assertTrue(ifNamesEqual);
 	}
-	
+
 	@Test
 	void testChangingStudySetName() {
 		System.out.println("\nTest changing the name of the study set:");
 		StudySet studySet = new StudySet("test1");
-		assertEquals(studySet.getName(),"test1");
+		assertEquals(studySet.getName(), "test1");
 		studySet.changeStudySetName("new name");
-		assertEquals(studySet.getName(),"new name");
-		
-		
+		assertEquals(studySet.getName(), "new name");
+
 	}
 	
+	@Test
+	void testViewingAllTerms() {
+		System.out.println("\nTest viewing all the terms in the study set. Please check the console for output.");  
+		StudySet studySet = new StudySet("test1");
+		Term term1=new Term("Do you like CSE 237?","Yes");
+		Term term2=new Term("What's your favorite class?","CSE 237");
+		Term term3=new Term("Piazza or Discord?","Discord");
+		studySet.insertTerm(term1);
+		studySet.insertTerm(term2);
+		studySet.insertTerm(term3);
+		
+		studySet.viewAllTerms();
+		
+		System.out.println("Now deleting the term 'Do you like CSE 237' ");
+		studySet.deleteTerm(term1);
+		studySet.viewAllTerms();
+		
+	
+	}
 
 }
