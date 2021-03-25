@@ -65,5 +65,16 @@ class studySetTests {
 		assertTrue(ifNamesEqual);
 	}
 	
+	@Test
+	void testChangingStudySetName() {
+		System.out.println("\nTest changing the name of the study set:");
+		StudySet studySet = new StudySet("test1");
+		assertEquals(studySet.getName(),"test1");
+		studySet.changeStudySetName("new name");
+		assertEquals(studySet.getName(),"new name");
+		
+		
+	}
+	
 
 }

@@ -18,4 +18,13 @@ public class Term {
 	public boolean checkAnswer(String inputDefinition) {
 		return inputDefinition.equals(this.correctDefinition);
 	}
+	
+	
+	public String getTerm() {
+		return this.question;
+	}
+	
+	public String getDefinition() {
+		return this.correctDefinition;
+	}
 }
