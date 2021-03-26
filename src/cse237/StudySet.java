@@ -33,6 +33,17 @@ public class StudySet {
 			return false;
 		}
 	}
+	
+	// TODO: change user message
+	public boolean changeTermDefinition(Term termForModification, String newDefinition) {
+		String existingQuestion = termForModification.getTerm();
+		if (this.deleteTerm(termForModification)) {
+			Term newTerm = new Term(existingQuestion, newDefinition);  // new term to be inserted into studySet
+			return this.insertTerm(newTerm);
+		}
+		return false; // error in deleting the term
+	}
+	
 
 	public void changeStudySetName(String newName) {
 		System.out.println("Changing study set name to " + newName + "...");
