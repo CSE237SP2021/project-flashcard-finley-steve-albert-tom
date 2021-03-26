@@ -19,7 +19,6 @@ public class Term {
 		return inputDefinition.equals(this.correctDefinition);
 	}
 	
-	
 	public String getTerm() {
 		return this.question;
 	}
