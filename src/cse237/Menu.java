@@ -5,7 +5,10 @@ import java.util.Scanner;
 public class Menu {
 
 	private Scanner keyboardIn;
-
+	
+	static SetManager setManager;
+	
+	
 	public Menu() {
 		keyboardIn = new Scanner(System.in);
 	}
@@ -28,18 +31,20 @@ public class Menu {
 
 	private static void processMainMenu(Menu flashCardMenu, int selectedOption) {
 		if (selectedOption == 1) {
-			displayOpenSetMenu(flashCardMenu);
-			String nameForNewSet = flashCardMenu.getUserInputString();
-			createStudySet(nameForNewSet);
-		} else {
 			displayCreateSetMenu(flashCardMenu);
 			String setToOpen = flashCardMenu.getUserInputString();
 			openSet(setToOpen);
+		} else {
+			displayOpenSetMenu(flashCardMenu);
+			String nameForNewSet = flashCardMenu.getUserInputString();
+			createStudySet(nameForNewSet);
 		}
 	}
 
 	private static void openSet(String name) {
 		System.out.println("Opening set...");
+		setManager = new SetManager();
+		setManager.viewAllStudySet();
 	}
 
 	private static void createStudySet(String name) {
@@ -47,6 +52,14 @@ public class Menu {
 	}
 
 	private static void displayCreateSetMenu(Menu flashCardMenu) {
+		Scanner inputString = new Scanner(System.in);
+		String result = inputString.next();
+		StudySet studyset = new StudySet("Test1");
+		if (result.equals(studyset.getName())) {
+			System.out.println("Success");
+		}else {
+			System.out.println("");
+		}
 		System.out.println("Name for the new study set?");
 
 	}
