@@ -16,16 +16,13 @@ public class Menu {
 	public static void main(String[] args) {
 		Menu flashCardMenu = new Menu();
 		run(flashCardMenu);
-
 	}
 
 	private static void run(Menu flashCardMenu) {
 		displayMainMenu();
 		setManager = new SetManager();
 		int selectedOption = flashCardMenu.getUserInputInt();
-
 		processMainMenu(flashCardMenu, selectedOption);
-
 		flashCardMenu.keyboardIn.close();
 	}
 
