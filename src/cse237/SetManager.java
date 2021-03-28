@@ -13,7 +13,6 @@ public class SetManager {
 	}
 	
 	public void insertStudySet(StudySet setForInsertion) {
-		
 		System.out.println("Saving study set...");
 		this.studySetCollection.add(setForInsertion);
 		System.out.println("Study set successuflly saved.");

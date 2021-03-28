@@ -21,7 +21,7 @@ public class Menu {
 
 	private static void run(Menu flashCardMenu) {
 		displayMainMenu();
-
+		setManager = new SetManager();
 		int selectedOption = flashCardMenu.getUserInputInt();
 
 		processMainMenu(flashCardMenu, selectedOption);
@@ -31,37 +31,37 @@ public class Menu {
 
 	private static void processMainMenu(Menu flashCardMenu, int selectedOption) {
 		if (selectedOption == 1) {
-			displayCreateSetMenu(flashCardMenu);
+			displayOpenSetMenu(flashCardMenu);
 			String setToOpen = flashCardMenu.getUserInputString();
 			openSet(setToOpen);
 		} else {
-			displayOpenSetMenu(flashCardMenu);
-			String nameForNewSet = flashCardMenu.getUserInputString();
+			displayCreateSetMenu(flashCardMenu);
+//			String nameForNewSet = flashCardMenu.getUserInputString();
+			Scanner inputString = new Scanner(System.in);
+			String nameForNewSet = inputString.nextLine();
 			createStudySet(nameForNewSet);
 		}
 	}
-
 	private static void openSet(String name) {
 		System.out.println("Opening set...");
-		setManager = new SetManager();
 		setManager.viewAllStudySet();
 	}
 
 	private static void createStudySet(String name) {
 		System.out.println("Creating study set...");
+		StudySet newSetName= new StudySet(name);
+		setManager.insertStudySet(newSetName);
 	}
 
 	private static void displayCreateSetMenu(Menu flashCardMenu) {
-		Scanner inputString = new Scanner(System.in);
-		String result = inputString.next();
-		StudySet studyset = new StudySet("Test1");
-		if (result.equals(studyset.getName())) {
-			System.out.println("Success");
-		}else {
-			System.out.println("");
-		}
+//		StudySet studyset = new StudySet("Test1");
+//		if (result.(studyset.getName())) {
+//			System.out.println("Success");
+//		}else {
+//		}
 		System.out.println("Name for the new study set?");
-
+//		Scanner inputString = new Scanner(System.in);
+//		String result = inputString.nextLine();
 	}
 
 	private static void displayOpenSetMenu(Menu flashCardMenu) {
