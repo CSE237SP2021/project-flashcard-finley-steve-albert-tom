@@ -7,7 +7,7 @@ Albert Kao, Finley Li, Steve Li, and Sihan (Tom) Cai
 ## Project Description
 A flashcard app that allows users to create virtual flashcards with words and definitions in order to study for their classes. Fuctionality wise, it would be very similar to Quizlet, where users can study words and prepare for a quiz or exam.
 
-Students who are preparing for a quiz or exam for classes that they are in and anyone wishing to learn or memorize new vocabs or concepts can choose to utilize our implemented flashcard app.
+The primary audience for the app are students who are studying for quizzes or exams, or people wishing to learn new vocabs or concepts. 
 
 For best practice, we take advantage of Junit tests to gauge the correctness of the codes implemented. In order to maintain effective communication between group members, we created a group chat for people to ask and answer questions. We also hosted Zoom meetings regulary to discuss and address problems and challenges that we encountered along the way. 
 
