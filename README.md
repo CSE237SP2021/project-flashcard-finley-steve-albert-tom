@@ -27,7 +27,7 @@ We plan to add more modes to the app. For example, we would like to create a fla
 There is one task in which the user should be able to select a study set to study. We need to allow the program to run continuously (meaning programs stops after the user add/open a set). One possible solution for this is to add a quit button to stop the program from running continuously.
 
 #### What commands are needed to compile and run your code from the command line (or better yet, provide a script that people can use to run your program!)?
-To run the program, simply run the following command: 
+To compile and run the program, simply run the following command: 
 ```
 ./run.sh 
 ``` 
