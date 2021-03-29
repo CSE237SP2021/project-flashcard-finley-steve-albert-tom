@@ -24,7 +24,7 @@ We designed a basic command-line UI for the menu, including many placeholder sec
 We plan to add more modes to the app. For example, we would like to create a flashcard mode where the user can study each term individually. We also need to refactor the app so that it could store the data (study set etc.) created by the user locally and allow them to access these data the next time they run the program.  
 
 #### Is there anything that you implemented but doesn't currently work?
-We need to allow the main program to run continuously (currently the programs stops after the user add/open a set). One possible solution for this is to add a quit button to stop the program from running continuously.
+We need to allow the main program to run continuously (currently the programs stops after the user add/open a set). One possible solution for this is to put everything in a while loop and add a quit button to stop the program when needed.
 
 #### What commands are needed to compile and run your code from the command line (or better yet, provide a script that people can use to run your program!)?
 To compile and run the program, simply run the following command: 
