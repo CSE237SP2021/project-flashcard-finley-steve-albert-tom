@@ -1,12 +1,12 @@
 package cse237;
 
 public class Term {
-	private String question;
-	private String correctDefinition;
+	private String term;
+	private String definition;
 	
-	public Term(String question, String correctDefinition) {
-		this.question = question;
-		this.correctDefinition = correctDefinition;
+	public Term(String term, String definition) {
+		this.term = term;
+		this.definition = definition;
 	}
 	
 	/**
@@ -16,14 +16,14 @@ public class Term {
 	 *
 	 */
 	public boolean checkAnswer(String inputDefinition) {
-		return inputDefinition.equals(this.correctDefinition);
+		return inputDefinition.equals(this.definition);
 	}
 	
 	public String getTerm() {
-		return this.question;
+		return this.term;
 	}
 	
 	public String getDefinition() {
-		return this.correctDefinition;
+		return this.definition;
 	}
 }

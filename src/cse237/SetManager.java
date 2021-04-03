@@ -32,9 +32,10 @@ public class SetManager {
 		
 	}
 	
-	public void viewAllStudySet() {
+	public int viewAllStudySet() {
 		if(this.getNumberOfStudyset()==0) {
 			System.out.println("You don't have any study set yet.");
+			return 0;
 		}
 		else {
 			int currentIndex=1;
@@ -47,8 +48,19 @@ public class SetManager {
 				currentIndex++;
 			}
 			
+			return 1;
+			
 		}
 		
+	}
+	
+	public void openStudySet(int index) {
+		int counter=1;
+		for (StudySet set: this.studySetCollection) {
+			if(counter==index) {
+				set.viewAllTerms();
+			}
+		}
 	}
 	
 	
