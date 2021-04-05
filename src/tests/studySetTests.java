@@ -85,16 +85,16 @@ class studySetTests {
 		assertTrue((!ifChange) && ifSizeIs0);
 	}
 
-	@Test
-	void testGettingStudySetName() {
-		System.out.println("Test getting the name of the study set:");
-		String name = "test1";
-		StudySet studySet = new StudySet(name);
-		String studySetName = studySet.getName();
-		boolean ifNamesEqual = name.equals(studySetName);
-		System.out.println("------------------------------------------------------");
-		assertTrue(ifNamesEqual);
-	}
+//	@Test
+//	void testGettingStudySetName() {
+//		System.out.println("Test getting the name of the study set:");
+//		String name = "test1";
+//		StudySet studySet = new StudySet(name);
+//		String studySetName = studySet.getName();
+//		boolean ifNamesEqual = name.equals(studySetName);
+//		System.out.println("------------------------------------------------------");
+//		assertTrue(ifNamesEqual);
+//	}
 
 	@Test
 	void testChangingStudySetName() {
