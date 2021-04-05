@@ -9,7 +9,7 @@ import cse237.StudySet;
 import cse237.Term;
 
 class setManagerTests {
-
+//NOTE: NEED MORE TESTS FOR NEWLY ADDED METHODS!!!
 	@Test
 	void testNormalInsertionandDeletion() {
 		

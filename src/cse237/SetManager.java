@@ -25,6 +25,7 @@ public class SetManager {
 			return false;
 		}
 		else {
+			System.out.println("Deleting study set...");
 			this.studySetCollection.remove(index);
 			System.out.println("Study set successfully removed.");
 			return true;
@@ -61,6 +62,17 @@ public class SetManager {
 				set.viewAllTerms();
 			}
 		}
+	}
+	
+	public void insertTermToStudySet(int index, Term termToInsert) {
+		int counter=1;
+		for (StudySet set: this.studySetCollection) {
+			if(counter==index) {
+				set.insertTerm(termToInsert);
+			}
+		}
+		
+		
 	}
 	
 	
