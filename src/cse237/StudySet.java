@@ -59,7 +59,7 @@ public class StudySet {
 					System.out.println("Definition successfully changed!");
 					break;
 				}
-
+				counter++;
 			}
 
 			return true;
@@ -81,7 +81,7 @@ public class StudySet {
 					System.out.println("Term successfully changed!");
 					break;
 				}
-
+				counter++;
 			}
 
 			return true;

@@ -63,6 +63,7 @@ public class SetManager {
 				if (counter == index) {
 					set.viewAllTerms();
 				}
+				counter++;
 			}
 		}
 
@@ -83,6 +84,7 @@ public class SetManager {
 				if (counter == index) {
 					set.insertTerm(termToInsert);
 				}
+				counter++;
 			}
 
 		}
@@ -90,9 +92,10 @@ public class SetManager {
 	}
 	
 	// 0=term, 1=definition 
-	public void editTermInStudySet(int setIndex,int termIndex, String termOrDefinition, int option) {
+	public int editTermInStudySet(int setIndex,int termIndex, String termOrDefinition, int option) {
 		if(setIndex >= this.studySetCollection.size()) {
 			System.out.println("Failed to edit study set. Please enter a valid index.");
+			return 0; 
 		}
 		else {
 			
@@ -104,9 +107,11 @@ public class SetManager {
 				else if(counter==setIndex && option==1) {//change definition 
 					set.changeTermDefinition(termIndex, termOrDefinition);
 				}
+				
+				counter++;
 			}
 		}
-		
+		return 1;
 	}
 	
 	

@@ -110,20 +110,11 @@ public class Menu {
 				return 1;
 			}
 
+			
 			else if (userOptionEditSet == 2) {
-				//System.out.println("Not yet implemented."); 
-				
-				System.out.println("Please select an entry to edit (enter a number).");
-				int userSelectedEntry= flashCardMenu.getUserInputInt();
-				//need to add a quit option 
-				System.out.println("Please select an option: ");
-				System.out.println("1. Edit term");
-				System.out.println("2. Edit definition");
-				int userEditOption= flashCardMenu.getUserInputInt();
 				
 				
-				
-				return 1;
+				return editTermFromExistingStudySet(flashCardMenu, index);
 			}
 		}
 
@@ -132,12 +123,46 @@ public class Menu {
 			int userConfirmation = flashCardMenu.getUserInputInt();
 			if (userConfirmation == 1) {
 				setManager.deleteStudySet(index - 1); // be careful: index starts at 0 for delete set
-				return 0;
+				return 0; //return to menu 
 			} else {
 				return 1;
 			}
 		}
 		return 1;
+	}
+
+	private static int editTermFromExistingStudySet(Menu flashCardMenu, int index) {
+		setManager.openStudySet(index - 1); //display all the terms and definitions again 
+		System.out.println();
+		System.out.println("Please select an entry to edit (enter a number).");
+		int userSelectedEntry= flashCardMenu.getUserInputInt();
+		//need to add a quit option 
+		System.out.println("Please select an option: ");
+		System.out.println("1. Edit term");
+		System.out.println("2. Edit definition");
+		int userEditOption= flashCardMenu.getUserInputInt();
+		int editResult=0;
+		if(userEditOption==1) {
+			System.out.println("Please enter the new term: ");
+			String userEnteredTerm=flashCardMenu.getUserInputString();
+			editResult=setManager.editTermInStudySet(index-1, userSelectedEntry-1, userEnteredTerm, 0);
+			if(editResult==1) {
+				System.out.println("Edit successful.");
+			}
+		
+			
+		}
+		else if (userEditOption==2) {
+			System.out.println("Please enter the new definition: ");
+			String userEnteredDefinition=flashCardMenu.getUserInputString();
+			editResult=setManager.editTermInStudySet(index-1, userSelectedEntry-1, userEnteredDefinition, 1);
+			
+			if(editResult==1) {
+				System.out.println("Edit sucessful");
+			}
+		}
+		
+		return 1; //stay in the loop 
 	}
 
 	private static void insertTermToExistingStudySet(Menu flashCardMenu, int index) {
