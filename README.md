@@ -33,8 +33,19 @@ To compile and run the program, simply run the following command:
 ``` 
 
 
+### Iteration 2: 
+#### What user stories were completed this iteration?
+We reworked the menu of the app and now it's fully functional. Users can create study sets, add and edit terms as they wish.  
 
+#### What user stories do you intend to complete next iteration? 
 
+#### Is there anything that you implemented but doesn't currently work?
+
+#### What commands are needed to compile and run your code from the command line (or better yet, provide a script that people can use to run your program!)?
+To compile and run the program, simply run the following command: 
+```
+./run.sh 
+``` 
 
 
 
