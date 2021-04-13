@@ -40,6 +40,9 @@ We reworked the menu of the app and now it's fully functional. Users can create 
 #### What user stories do you intend to complete next iteration? 
 We need to implement various modes
 #### Is there anything that you implemented but doesn't currently work?
+We need to think about whether sets and terms created by the user could be stored locally and displayed on another session.
+
+Think and design the study mode: how the user is able to study the term individually.
 
 #### What commands are needed to compile and run your code from the command line (or better yet, provide a script that people can use to run your program!)?
 To compile and run the program, simply run the following command: 
