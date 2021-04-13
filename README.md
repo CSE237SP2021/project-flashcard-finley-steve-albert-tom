@@ -38,7 +38,7 @@ To compile and run the program, simply run the following command:
 We reworked the menu of the app and now it's fully functional. Users can create study sets, add and edit terms as they wish.  
 
 #### What user stories do you intend to complete next iteration? 
-We need to implement various modes
+We need to implement various modes and design the study mode.
 #### Is there anything that you implemented but doesn't currently work?
 We need to think about whether sets and terms created by the user could be stored locally and displayed on another session.
 
