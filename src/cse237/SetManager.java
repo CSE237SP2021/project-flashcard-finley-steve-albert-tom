@@ -76,7 +76,6 @@ public class SetManager {
 		if (index >= this.studySetCollection.size()) {
 			System.out.println("Failed to insert term to study set. Please enter a valid index.");
 		}
-
 		else {
 
 			int counter = 0;

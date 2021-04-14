@@ -1,6 +1,7 @@
 package cse237;
 
 import java.util.HashSet;
+import java.util.Iterator;
 import java.util.Set;
 
 public class StudySet {
@@ -17,6 +18,12 @@ public class StudySet {
 			System.out.println("Error in insertion. Term already exists.");
 			return false;
 		} else {
+			for (Term s : this.studySetCollection) {
+				if(s.getTerm().equals(termForInsertion.getTerm())){
+					System.out.println("Error in insertion. Term already exists.");
+					return false;
+				}					
+			}	
 			this.studySetCollection.add(termForInsertion);
 			System.out.println("Term successfully inserted.");
 			return true;
@@ -52,7 +59,6 @@ public class StudySet {
 			return false;
 		} else {
 			int counter = 0;
-
 			for (Term term : studySetCollection) {
 				if (counter == index) {
 					term.setDefinition(newDefinition);
@@ -74,7 +80,6 @@ public class StudySet {
 			return false;
 		} else {
 			int counter = 0;
-
 			for (Term term : studySetCollection) {
 				if (counter == index) {
 					term.setTerm(newTermName);

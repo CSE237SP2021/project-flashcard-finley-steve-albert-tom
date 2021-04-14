@@ -43,9 +43,7 @@ class setManagerTests {
 		StudySet studySet2=new StudySet("test2");
 		setManager1.insertStudySet(studySet2);
 		boolean deletionResult2=setManager1.deleteStudySet(4);
-		assertTrue(!deletionResult2);
-		
-		
+		assertTrue(!deletionResult2);		
 	}
 	
 	@Test
@@ -54,19 +52,16 @@ class setManagerTests {
 		SetManager setManager1=new SetManager();
 		StudySet studySet1 = new StudySet("test1");
 		Term term1=new Term("What's 1+1?", "2");
-		Term term2= new Term("What's 1+3?", "4");
+		Term term2= new Term("What's 1+1?", "2");
 		studySet1.insertTerm(term1);
 		studySet1.insertTerm(term2);
 		setManager1.insertStudySet(studySet1);
 		System.out.println("\nDisplaying the terms before the insertion: ");
 		setManager1.openStudySet(0);
 		setManager1.insertTermToStudySet(0, new Term("new term","new term"));
-		
 		System.out.println("\n Displaying the terms after the insertion: ");
 		setManager1.openStudySet(0);
-		
 	}
-	
 	
 	@Test 
 	void testEditingTermAndDefinition() {
