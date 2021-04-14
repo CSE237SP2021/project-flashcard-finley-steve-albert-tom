@@ -35,14 +35,12 @@ To compile and run the program, simply run the following command:
 
 ### Iteration 2: 
 #### What user stories were completed this iteration?
-We reworked the menu of the app and now it's fully functional. Users can create study sets, add and edit terms as they wish.  
+The menu of the app is fully reworked and now it's fully functional. Users can create study sets, add and edit terms through the menu as they wish.  
 
 #### What user stories do you intend to complete next iteration? 
-We need to implement various modes and design the study mode.
+We need to implement various modes including a study mode where the users can study each term individually and possibly a game mode where the users take quizzes and test their understanding and familiarity with the concepts. 
 #### Is there anything that you implemented but doesn't currently work?
-We need to think about whether sets and terms created by the user could be stored locally and displayed on another session.
-
-Think and design the study mode: how the user is able to study the term individually.
+We need to come up with ways to store the information locally. For example, the sets and terms created by the user could be stored locally and displayed during another session.
 
 #### What commands are needed to compile and run your code from the command line (or better yet, provide a script that people can use to run your program!)?
 To compile and run the program, simply run the following command: 
