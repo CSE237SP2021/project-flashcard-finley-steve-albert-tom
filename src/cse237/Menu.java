@@ -191,7 +191,6 @@ public class Menu {
 	private static void createStudySet(Menu flashCardMenu, String name) {
 		System.out.println("Creating study set...");
 		StudySet newSet = new StudySet(name);
-
 		insertTermsToNewStudyset(flashCardMenu, newSet);
 
 		setManager.insertStudySet(newSet);

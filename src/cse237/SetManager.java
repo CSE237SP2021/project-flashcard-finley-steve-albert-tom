@@ -13,9 +13,22 @@ public class SetManager {
 
 	public void insertStudySet(StudySet setForInsertion) {
 		System.out.println("Saving study set...");
-		this.studySetCollection.add(setForInsertion);
-		System.out.println("Study set successuflly saved.");
-
+		boolean setExist=false;
+		for (StudySet s : this.studySetCollection) {
+			if(setForInsertion.getName().equals(s.getName())){
+				setExist=true;
+			}					
+		}
+		if (checkIfSetExists(setForInsertion)) {
+			System.out.println("Error in insertion. Set already exists.");
+		}
+		else if(setExist) {
+			System.out.println("Error in insertion. Study set already exists.");
+		}
+		else {
+			this.studySetCollection.add(setForInsertion);
+			System.out.println("Study set successuflly saved.");
+		}
 	}
 
 	public boolean deleteStudySet(int index) {
@@ -117,6 +130,10 @@ public class SetManager {
 
 	public int getNumberOfStudyset() {
 		return this.studySetCollection.size();
+	}
+	
+	public boolean checkIfSetExists(StudySet setForChecking) {
+		return this.studySetCollection.contains(setForChecking);
 	}
 
 }
