@@ -79,7 +79,7 @@ public class Menu {
 			System.out.println("2. Study set");
 			System.out.println("3. Delete set");
 			System.out.println("4. Return to menu");
-
+			
 			int userOptionOpenSet = flashCardMenu.getUserInputInt();
 			if (userOptionOpenSet == 4) { // if the user selected return to menu
 				return;
@@ -178,10 +178,12 @@ public class Menu {
 			Term termToInsert = new Term(term, definition);
 			// System.out.println(definition);
 			setManager.insertTermToStudySet(index - 1, termToInsert);
-			System.out.println("Keep adding? Enter yes(1) or no(0) ");
+			System.out.println("Keep adding? Enter 1(yes) or 0(no) ");
 			int continueOrNot = flashCardMenu.getUserInputInt();
 
-			if (continueOrNot == 0) {
+			if (continueOrNot == 1) {
+				continue;
+			} else {
 				break;
 			}
 
@@ -209,10 +211,12 @@ public class Menu {
 			Term termToInsert = new Term(term, definition);
 			// System.out.println(definition);
 			newSet.insertTerm(termToInsert);
-			System.out.println("Keep adding? Enter yes(1) or no(0) ");
+			System.out.println("Keep adding? Enter 1(yes) or 0(no) ");
+			
 			int continueOrNot = flashCardMenu.getUserInputInt();
-
-			if (continueOrNot == 0) {
+			if (continueOrNot == 1) {
+				continue;
+			} else {
 				break;
 			}
 
@@ -255,7 +259,11 @@ public class Menu {
 	}
 
 	private int getUserInputInt() {
-		return keyboardIn.nextInt();
+		while (!keyboardIn.hasNextInt()) { // hasNextInt keeps the input in the buffer
+			System.out.println("Please enter a valid integer.");
+			keyboardIn.next(); // if input not int, consume and discard the input from the buffer
+		}
+		return keyboardIn.nextInt(); // if input is int, consume and return the input from the buffer
 	}
 
 	private String getUserInputString() {
