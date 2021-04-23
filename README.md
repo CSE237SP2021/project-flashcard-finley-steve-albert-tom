@@ -1,4 +1,4 @@
-# A flashcard app
+# "Flashtastic" --- A flashcard app
 <!-- Team Member -->
 Albert Kao, Finley Li, Steve Li, and Sihan (Tom) Cai
 
