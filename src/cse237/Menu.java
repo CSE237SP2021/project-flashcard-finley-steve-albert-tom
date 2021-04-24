@@ -128,6 +128,11 @@ public class Menu {
 				return 1;
 			}
 		}
+		else if (userOptionOpenSet==2) { //if the user selected study set
+			System.out.println("Entering study mode..."); 
+			//System.out.println("Please select an option (enter a number): ");
+			
+		}
 		return 1;
 	}
 
