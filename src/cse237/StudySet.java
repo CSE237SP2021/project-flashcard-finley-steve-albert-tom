@@ -1,5 +1,7 @@
 package cse237;
 
+import java.util.Collections;
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.Set;
@@ -121,6 +123,21 @@ public class StudySet {
 
 		System.out.println("////////////////////////////////////////////");
 
+	}
+	
+	//This method converts the list of terms into a list of key-value pairs (in random order)
+	public HashMap<String, String> setToHashMap () {
+		HashMap<String,String> dictionary=new HashMap<String, String>();
+		
+		for(Term currentTerm:this.studySetCollection) {
+			String termName = currentTerm.getTerm();
+			String termDefinition = currentTerm.getDefinition();
+			dictionary.put(termName,termDefinition);
+		}
+		
+		return dictionary;
+		
+		
 	}
 	
 
