@@ -34,13 +34,13 @@ public class Menu {
 
 				break;
 			}
-			processMainMenu(flashCardMenu, selectedOption);
+			processMenu(flashCardMenu, selectedOption);
 		}
 		System.out.println("Program terminated!");
 
 	}
 
-	private static void processMainMenu(Menu flashCardMenu, int selectedOption) {
+	private static void processMenu(Menu flashCardMenu, int selectedOption) {
 
 		// if the user selected "Open set"
 		if (selectedOption == 1) {
@@ -58,7 +58,7 @@ public class Menu {
 		}
 		// if the user selected "Create set"
 		else if (selectedOption == 2) {
-			displayCreateSetMenu(flashCardMenu);
+			displaySetMenu(flashCardMenu);
 			String nameForNewSet = flashCardMenu.getUserInputString();
 			createStudySet(flashCardMenu, nameForNewSet);
 		}
@@ -86,7 +86,7 @@ public class Menu {
 			if (userOptionOpenSet == 4) { // if the user selected return to menu
 				return;
 			}
-			int processResult = processUserInputOpenSet(flashCardMenu, index, userOptionOpenSet);
+			int processResult = processInputOpenSet(flashCardMenu, index, userOptionOpenSet);
 			if (processResult == 1) { // stay in the loop
 				continue;
 			} else { // return to menu
@@ -99,7 +99,7 @@ public class Menu {
 
 	// Note: return 1 if we want to stay in the loop, 0 if we want to return to the
 	// menu
-	private static int processUserInputOpenSet(Menu flashCardMenu, int index, int userOptionOpenSet) {
+	private static int processInputOpenSet(Menu flashCardMenu, int index, int userOptionOpenSet) {
 		if (userOptionOpenSet == 1) { // if the user selected edit set
 			System.out.println("Please select an option");
 			System.out.println("1. Insert new terms");
@@ -108,13 +108,13 @@ public class Menu {
 			int userOptionEditSet = flashCardMenu.getUserInputInt();
 			if (userOptionEditSet == 1) {
 
-				insertTermToExistingStudySet(flashCardMenu, index);
+				insertTermToStudySet(flashCardMenu, index);
 				return 1;
 			}
 
 			else if (userOptionEditSet == 2) {
 
-				return editTermFromExistingStudySet(flashCardMenu, index);
+				return editTermFromStudySet(flashCardMenu, index);
 			}
 		}
 
@@ -148,9 +148,9 @@ public class Menu {
 				String definition = entry.getValue();
 				
 				if (userOptionStudyMode1 == 1) {// if the user selected show terms
-					displayTermStudyMode(flashCardMenu, learningCounter, term, definition);
+					displayTerm(flashCardMenu, learningCounter, term, definition);
 				} else {// if the user selected show definitions
-					displayDefinitionStudyMode(flashCardMenu, learningCounter, term, definition);
+					displayDefinition(flashCardMenu, learningCounter, term, definition);
 
 				}
 				learningCounter++;
@@ -173,7 +173,7 @@ public class Menu {
 		return 1;
 	}
 
-	private static void displayDefinitionStudyMode(Menu flashCardMenu, int learningCounter, String term,
+	private static void displayDefinition(Menu flashCardMenu, int learningCounter, String term,
 			String definition) {
 		System.out.println();
 		System.out.println("////////////////////////////////////");
@@ -193,7 +193,7 @@ public class Menu {
 		}
 	}
 
-	private static void displayTermStudyMode(Menu flashCardMenu, int learningCounter, String term, String definition) {
+	private static void displayTerm(Menu flashCardMenu, int learningCounter, String term, String definition) {
 		System.out.println();
 		System.out.println("////////////////////////////////////");
 		System.out.println("Displaying the "+learningCounter+" term: \n");
@@ -214,7 +214,7 @@ public class Menu {
 		}
 	}
 
-	private static int editTermFromExistingStudySet(Menu flashCardMenu, int index) {
+	private static int editTermFromStudySet(Menu flashCardMenu, int index) {
 		setManager.openStudySet(index - 1); // display all the terms and definitions again
 		System.out.println();
 		System.out.println("Please select an entry to edit (enter a number).");
@@ -246,7 +246,7 @@ public class Menu {
 		return 1; // stay in the loop
 	}
 
-	private static void insertTermToExistingStudySet(Menu flashCardMenu, int index) {
+	private static void insertTermToStudySet(Menu flashCardMenu, int index) {
 		while (true) {
 
 			System.out.println("Please enter the term: ");
@@ -274,12 +274,12 @@ public class Menu {
 	private static void createStudySet(Menu flashCardMenu, String name) {
 		System.out.println("Creating study set...");
 		StudySet newSet = new StudySet(name);
-		insertTermsToNewStudyset(flashCardMenu, newSet);
+		insertTermsToStudyset(flashCardMenu, newSet);
 
 		setManager.insertStudySet(newSet);
 	}
 
-	private static void insertTermsToNewStudyset(Menu flashCardMenu, StudySet newSet) {
+	private static void insertTermsToStudyset(Menu flashCardMenu, StudySet newSet) {
 		while (true) {
 
 			System.out.println("Please enter the term: ");
@@ -304,7 +304,7 @@ public class Menu {
 		}
 	}
 
-	private static void displayCreateSetMenu(Menu flashCardMenu) {
+	private static void displaySetMenu(Menu flashCardMenu) {
 
 		System.out.println("Name for the new study set?");
 
