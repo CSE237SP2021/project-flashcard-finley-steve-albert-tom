@@ -1,6 +1,7 @@
 package cse237;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 public class SetManager {
 
@@ -124,6 +125,23 @@ public class SetManager {
 			}
 		}
 		return 1;
+	}
+	
+	public HashMap<String,String> getMapRepresentationOfASet(int setIndex){
+		HashMap<String,String> dictionary=new HashMap<String, String>();
+		if(setIndex >= this.studySetCollection.size()) {
+			System.out.println("Failed to show map representation. Please enter a valid index.");
+			 
+		}
+		else {
+			int counter=0;
+			for(StudySet set: this.studySetCollection) {
+				if(counter==setIndex) {
+					dictionary=set.setToHashMap();
+				}
+			}
+		}
+		return dictionary;
 	}
 	
 	
