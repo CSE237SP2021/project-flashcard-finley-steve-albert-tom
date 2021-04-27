@@ -66,12 +66,11 @@ public class SetManager {
 
 	}
 
-	public void openStudySet(int index) {
+	public boolean openStudySet(int index) {
 
-		if (index >= this.studySetCollection.size()) {
-			System.out.println("Failed to open study set. Please enter a valid index.");
+		if (index >= this.studySetCollection.size() || index < 0) {	// invalid index
+			return false;	
 		} else {
-
 			int counter = 0;
 			for (StudySet set : this.studySetCollection) {
 				if (counter == index) {
@@ -79,6 +78,7 @@ public class SetManager {
 				}
 				counter++;
 			}
+			return true;
 		}
 
 	}
@@ -127,16 +127,24 @@ public class SetManager {
 		return 1;
 	}
 	
+	/**
+	 * Get a map (HashMap) representation of a studySet.
+	 * 
+	 * @param setIndex the index of a studySet specified by (user input-1).
+	 * @return if the index is valid, returns a HashMap of the studySet;
+	 * 		   otherwise, returns an empty HashMap.
+	 *
+	 */ 
 	public HashMap<String,String> getMapRepresentationOfASet(int setIndex){
 		HashMap<String,String> dictionary=new HashMap<String, String>();
-		if(setIndex >= this.studySetCollection.size()) {
+		if(setIndex >= this.studySetCollection.size() || setIndex < 0) {
 			System.out.println("Failed to show map representation. Please enter a valid index.");
 			 
 		}
 		else {
 			int counter=0;
 			for(StudySet set: this.studySetCollection) {
-				if(counter==setIndex) {
+				if(counter==setIndex) { // setIndex found
 					dictionary=set.setToHashMap();
 				}
 				counter++;

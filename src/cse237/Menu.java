@@ -75,15 +75,20 @@ public class Menu {
 
 		/// display options
 		while (true) {
-			setManager.openStudySet(index - 1);
+			while (!setManager.openStudySet(index - 1)) {
+				System.out.println("Failed to open study set. Please enter a valid index.");
+				displayOpenSetMenu(flashCardMenu);
+				index = flashCardMenu.getUserInputInt();
+			}
 			System.out.println("Please select an option");
 			System.out.println("1. Edit set");
 			System.out.println("2. Study set");
-			System.out.println("3. Delete set");
-			System.out.println("4. Return to menu");
+			System.out.println("3. Quiz set");
+			System.out.println("4. Delete set");
+			System.out.println("5. Return to menu");
 
 			int userOptionOpenSet = flashCardMenu.getUserInputInt();
-			if (userOptionOpenSet == 4) { // if the user selected return to menu
+			if (userOptionOpenSet == 5) { // if the user selected return to menu
 				return;
 			}
 			int processResult = processInputOpenSet(flashCardMenu, index, userOptionOpenSet);
@@ -118,7 +123,7 @@ public class Menu {
 			}
 		}
 
-		else if (userOptionOpenSet == 3) { // if the user selected delete set
+		else if (userOptionOpenSet == 4) { // if the user selected delete set
 			System.out.println("Are you sure you want to delete the study set? Enter yes(1) or no(0) ");
 			int userConfirmation = flashCardMenu.getUserInputInt();
 			if (userConfirmation == 1) {
@@ -127,8 +132,14 @@ public class Menu {
 			} else {
 				return 1;
 			}
-		} else if (userOptionOpenSet == 2) { // if the user selected study set
+		} 
+		
+		else if (userOptionOpenSet == 2) { // if the user selected study set
 			return studySet(flashCardMenu, index); 
+		}
+		
+		else if (userOptionOpenSet == 3) { // if the user selected quiz set
+			return quizSet(flashCardMenu, index); 
 		}
 		return 1;
 	}
@@ -173,6 +184,83 @@ public class Menu {
 		return 1;
 	}
 
+	private static int quizSet(Menu flashCardMenu, int index) {
+		System.out.println("Entering quiz mode...");
+		while(true) {
+			HashMap<String, String> dictionary = setManager.getMapRepresentationOfASet(index-1);
+			System.out.println("Quiz started!");
+			int learningCounter = 1;
+			int numCorrectAns = 0;
+			for (Map.Entry<String, String> entry : dictionary.entrySet()) {
+				String term = entry.getKey();
+				String definition = entry.getValue();
+				boolean ifCorrectAns = checkTerm(flashCardMenu, learningCounter, term, definition);
+				if (ifCorrectAns) numCorrectAns++;
+				learningCounter++;
+			}
+			System.out.println();
+			System.out.println("You got " + numCorrectAns + " out of " + (learningCounter-1) + " questions(question) right.");
+			double gradePercentage = (double)numCorrectAns/(learningCounter-1)*100;
+			System.out.println("Your grade is " + gradePercentage + "%.");
+			System.out.println("Please select an option: \n");
+			System.out.println("1. Start over");
+			System.out.println("2. Exit quiz mode");
+			int userOptionQuizMode=flashCardMenu.getUserInputInt();
+			if(userOptionQuizMode==2) {//if the user selected exit
+				System.out.println("Exiting quiz mode...");
+				break;
+			}
+			else {//if the user selected start over
+				System.out.println("Starting over...");
+			}
+			
+		}
+		
+		return 1;
+	}
+	
+	private static boolean checkTerm(Menu flashCardMenu, int learningCounter, String term,
+			String definition) {
+		System.out.println();
+		System.out.println("////////////////////////////////////");
+		System.out.println("Displaying term no. "+learningCounter+"\n");
+		
+		
+		System.out.println("Term: " + term);
+		System.out.println();
+		System.out.println("Enter the definition of " + term + "(don't enter extra spaces):");
+		
+		String userInput = flashCardMenu.getUserInputString();
+		if (userInput.equals(definition)) {
+			System.out.println("Correct!");
+			return true;
+		} else {
+			System.out.println("The correct definition is: \n" + definition);
+			return false;
+		}
+	}
+	
+	private static void displayTerm(Menu flashCardMenu, int learningCounter, String term, String definition) {
+		System.out.println();
+		System.out.println("////////////////////////////////////");
+		System.out.println("Displaying term no. "+learningCounter+"\n");
+		
+		
+		System.out.println("Term: "+term);
+		System.out.println();
+		System.out.println("Options: \n");
+		System.out.println("1. Check Definition");
+		System.out.println("2. Skip");
+		int userOptionStudyMode2 = flashCardMenu.getUserInputInt();
+
+		if (userOptionStudyMode2 == 1) {
+			System.out.println("Here's the definition for the term: \n");
+			System.out.println(definition+"\n");
+		} else {
+			System.out.println("Skipping to the next term... \n");
+		}
+	}
+	
 	private static void displayDefinition(Menu flashCardMenu, int learningCounter, String term,
 			String definition) {
 		System.out.println();
@@ -190,27 +278,6 @@ public class Menu {
 		} else {
 			System.out.println();
 			System.out.println("Skipping to the next definition... \n");
-		}
-	}
-
-	private static void displayTerm(Menu flashCardMenu, int learningCounter, String term, String definition) {
-		System.out.println();
-		System.out.println("////////////////////////////////////");
-		System.out.println("Displaying term no. "+learningCounter+"\n");
-		
-		
-		System.out.println("Term: "+term);
-		System.out.println();
-		System.out.println("Options: \n");
-		System.out.println("1. Check Definition");
-		System.out.println("2. Skip");
-		int userOptionStudyMode2 = flashCardMenu.getUserInputInt();
-
-		if (userOptionStudyMode2 == 1) {
-			System.out.println("Here's the term for the definition: \n");
-			System.out.println(definition+"\n");
-		} else {
-			System.out.println("Skipping to the next term... \n");
 		}
 	}
 
