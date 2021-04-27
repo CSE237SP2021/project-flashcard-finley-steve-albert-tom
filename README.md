@@ -51,10 +51,10 @@ To compile and run the program, simply run the following command:
 
 ### Iteration 3: 
 #### What user stories were completed this iteration?
-The menu of the app is fully worked. Users can choose to create study sets and study them for all study modes. We also finish various modes include the study mode, where the users can stud each term individually. Not only that users can also study, using the quiz mode to test their understanding and familiarity with the concepts.
+More functionalities are added to the menu. Various modes were added, including the study mode, where the users can stud each term individually. A quiz mode was also implemened, allowing the users to test their understanding and familiarity with the terms and concepts.
 
 #### What user stories do you intend to complete next iteration? 
-There is one optional function: information(the sets and terms created by the user) could be stored locally (in .txt file) and be retrieved and displayed during another session. If we were to keep working, we would try to implement this optimal function.
+Ideally, the information(the sets and terms created by the user) should be stored locally (in .txt file) and be retrieved and displayed during another session. We didn't quite have the time to implement this feature but we would definitely finish it if we were to keep working on the app. 
 
 #### Is there anything that you implemented but doesn't currently work?
 None
