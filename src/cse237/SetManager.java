@@ -139,6 +139,7 @@ public class SetManager {
 				if(counter==setIndex) {
 					dictionary=set.setToHashMap();
 				}
+				counter++;
 			}
 		}
 		return dictionary;

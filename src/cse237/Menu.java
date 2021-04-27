@@ -177,7 +177,7 @@ public class Menu {
 			String definition) {
 		System.out.println();
 		System.out.println("////////////////////////////////////");
-		System.out.println("Displaying the "+learningCounter+" definition: \n");
+		System.out.println("Displaying definition no."+learningCounter+"\n" );
 		System.out.println("Definition: "+definition);
 		System.out.println("\n Options: \n");
 		System.out.println("1. Check Term");
@@ -196,7 +196,7 @@ public class Menu {
 	private static void displayTerm(Menu flashCardMenu, int learningCounter, String term, String definition) {
 		System.out.println();
 		System.out.println("////////////////////////////////////");
-		System.out.println("Displaying the "+learningCounter+" term: \n");
+		System.out.println("Displaying term no. "+learningCounter+"\n");
 		
 		
 		System.out.println("Term: "+term);
