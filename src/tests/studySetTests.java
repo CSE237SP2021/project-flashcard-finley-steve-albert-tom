@@ -60,13 +60,15 @@ class studySetTests {
 		
 	}
 	
+	
+	
 	@Test
 	void testChangingExistingTermDefinition() {
 		System.out.println("Test changing existing term definition in StudySet:");
 		StudySet studySet = new StudySet("test1");
 		Term termForTesting = new Term("What is 1+1 equal to?", "2");
 		boolean ifInsert = studySet.insertTerm(termForTesting);
-		boolean ifChange = studySet.changeTermDefinition(termForTesting, "I don't know."); 
+		boolean ifChange = studySet.changeTermDefinition(0, "I don't know."); 
 		boolean ifSizeIs1 = studySet.getSize() == 1;
 		System.out.println("StudySet contents:");
 		studySet.viewAllTerms();
@@ -79,23 +81,38 @@ class studySetTests {
 		System.out.println("Test changing non-existing term definition in StudySet:");
 		StudySet studySet = new StudySet("test1");
 		Term termForTesting = new Term("What is 1+1 equal to?", "2");
-		boolean ifChange = studySet.changeTermDefinition(termForTesting, "I don't know."); // should return false
+		boolean ifChange = studySet.changeTermDefinition(0, "I don't know."); // should return false
 		boolean ifSizeIs0 = studySet.getSize() == 0;
 		System.out.println("------------------------------------------------------");
 		assertTrue((!ifChange) && ifSizeIs0);
 	}
-
+	
 	@Test
-	void testGettingStudySetName() {
-		System.out.println("Test getting the name of the study set:");
-		String name = "test1";
-		StudySet studySet = new StudySet(name);
-		String studySetName = studySet.getName();
-		boolean ifNamesEqual = name.equals(studySetName);
+	void testChangingExistingTerm() {
+		System.out.println("Test changing existing term in StudySet:");
+		StudySet studySet = new StudySet("test1");
+		Term termForTesting = new Term("What is 1+1 equal to?", "2");
+		boolean ifInsert = studySet.insertTerm(termForTesting);
+		boolean ifChange = studySet.changeTerm(0, "What is 3-1 equal to? "); 
+		boolean ifSizeIs1 = studySet.getSize() == 1;
+		System.out.println("StudySet contents:");
+		studySet.viewAllTerms();
 		System.out.println("------------------------------------------------------");
-		assertTrue(ifNamesEqual);
+		assertTrue(ifInsert && ifChange && ifSizeIs1);	
 	}
 
+//	@Test
+//	void testGettingStudySetName() {
+//		System.out.println("Test getting the name of the study set:");
+//		String name = "test1";
+//		StudySet studySet = new StudySet(name);
+//		String studySetName = studySet.getName();
+//		boolean ifNamesEqual = name.equals(studySetName);
+//		System.out.println("------------------------------------------------------");
+//		assertTrue(ifNamesEqual);
+//	}
+
+	
 	@Test
 	void testChangingStudySetName() {
 		System.out.println("Test changing the name of the study set:");
