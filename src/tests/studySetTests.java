@@ -60,8 +60,6 @@ class studySetTests {
 		
 	}
 	
-	
-	
 	@Test
 	void testChangingExistingTermDefinition() {
 		System.out.println("Test changing existing term definition in StudySet:");
@@ -101,16 +99,16 @@ class studySetTests {
 		assertTrue(ifInsert && ifChange && ifSizeIs1);	
 	}
 
-//	@Test
-//	void testGettingStudySetName() {
-//		System.out.println("Test getting the name of the study set:");
-//		String name = "test1";
-//		StudySet studySet = new StudySet(name);
-//		String studySetName = studySet.getName();
-//		boolean ifNamesEqual = name.equals(studySetName);
-//		System.out.println("------------------------------------------------------");
-//		assertTrue(ifNamesEqual);
-//	}
+	@Test
+	void testGettingStudySetName() {
+		System.out.println("Test getting the name of the study set:");
+		String name = "test1";
+		StudySet studySet = new StudySet(name);
+		String studySetName = studySet.getName();
+		boolean ifNamesEqual = name.equals(studySetName);
+		System.out.println("------------------------------------------------------");
+		assertTrue(ifNamesEqual);
+	}
 
 	
 	@Test
@@ -140,6 +138,7 @@ class studySetTests {
 		studySet.deleteTerm(term1);
 		studySet.viewAllTerms();
 		System.out.println("------------------------------------------------------");
+		assertEquals(studySet.getSize(), 2);
 	}
 
 }

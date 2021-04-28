@@ -82,7 +82,25 @@ class setManagerTests {
 		setManager1.openStudySet(0);
 	}
 	
+	@Test
+	void testOpenExistingSet() {
+		
+		System.out.println("\nTesting opening existing study set from the set manager: ");
+		SetManager setManager1=new SetManager();
+		StudySet studySet1 = new StudySet("test1");
+		setManager1.insertStudySet(studySet1);
+		setManager1.openStudySet(0);
+	
+		assertTrue(setManager1.openStudySet(0));
+	}
 
+	@Test
+	void testOpenNonExistingSet() {
+		
+		System.out.println("\nTesting opening non-existing study set from the set manager: ");
+		SetManager setManager1=new SetManager();
+		assertTrue(!setManager1.openStudySet(0));
+	}
 	
 	
 
